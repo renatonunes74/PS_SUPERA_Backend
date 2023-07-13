@@ -1,4 +1,4 @@
-name: Teste unitários com jUnit 5
+name: Teste unitários com jUnit
 on:
   pull_request:
     branches:
