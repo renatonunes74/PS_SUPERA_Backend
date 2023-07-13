@@ -49,6 +49,7 @@
 - Linguagem: [Java](https://dev.java/)
     - Arquitetura: [Claen Architeture]()
     - Frameworks: [Spring Boot](https://spring.io/projects/spring-boot)
+    - Testes unitários: [jUhit 5](https://junit.org/junit5/)
     - Bibliotecas:
         - [Lombok](https://projectlombok.org/) (Anotações para gerar automaticamente métodos getters, setters, construtores, entre outros, em tempo de compilação)
 - Banco de dados: [H2](https://www.mysql.com/)
