@@ -1,14 +1,12 @@
 name: Teste unitários com jUnit 5
 on:
-  push:
-    branches: [ main ]
-    pull_request: [ main ]
+    pull_request: ['main']
     jobs:
       jUnit-testes:
-        run-on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
           - name: Setup - Projeto
-            uses: actions/checkout@v2
+            uses: actions/checkout@v3
 
           - name: Setup - Java
             uses: actions/setup-java@v2
