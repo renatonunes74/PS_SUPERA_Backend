@@ -14,6 +14,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+          distribution: 'zulu'
 
       - name: Execução do teste unitário
         run: mvn clean test
