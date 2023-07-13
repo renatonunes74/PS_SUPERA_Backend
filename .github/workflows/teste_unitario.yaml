@@ -1,17 +1,17 @@
-name: Teste unitários com jUnit
+name: Teste unitários jUnit
 on:
   pull_request:
     branches:
       - main
 
   jobs:
-    jUnit-testes:
+    build:
       runs-on: ubuntu-latest
       steps:
         - name: Setup - Projeto
           uses: actions/checkout@v3
 
-        - name: Setup - Java
+        - name: Setup - JDK 17
           uses: actions/setup-java@v2
           with:
             java-version: '17'
