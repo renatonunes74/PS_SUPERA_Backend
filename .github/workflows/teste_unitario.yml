@@ -15,5 +15,5 @@ on:
             with:
               java-version: '17'
 
-            run:
-              mvn clean test
+          - name: Execução do teste unitário
+            run: mvn clean test
