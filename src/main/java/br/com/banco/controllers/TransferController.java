@@ -23,13 +23,11 @@ public class TransferController {
 
 	@GetMapping("/nome/{nomeOperadorTransacao}")
 	public ResponseEntity<List<TransferResponseDTO>> getAllByNomeOperadorTransacao(@PathVariable String nomeOperadorTransacao){
-		// List<TransferResponseDTO> transferList = repository.findAllByNomeOperadorTransacaoContainingIgnoreCase(nomeOperadorTransacao).stream().map(TransferResponseDTO::new).toList();
 		return ResponseEntity.ok(repository.findAllByNomeOperadorTransacaoContainingIgnoreCase(nomeOperadorTransacao).stream().map(TransferResponseDTO::new).toList());
 	}
 
 	@GetMapping("/data/{dataTransferencia}")
-	public ResponseEntity<List<TransferResponseDTO>> getAllDataTransferencia(@PathVariable String dataTransferencia){
-		// List<TransferResponseDTO> transferList = repository.findAllByNomeOperadorTransacaoContainingIgnoreCase(dataTransferencia).stream().map(TransferResponseDTO::new).toList();
+	public ResponseEntity<List<TransferResponseDTO>> getAllByDataTransferencia(@PathVariable String dataTransferencia){
 		return ResponseEntity.ok(repository.findAllByDataTransferenciaContainingIgnoreCase(dataTransferencia).stream().map(TransferResponseDTO::new).toList());
 	}
 
