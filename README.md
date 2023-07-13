@@ -5,8 +5,8 @@
 ![GitHub last commit"](https://img.shields.io/github/last-commit/renatonunes74/PS_SUPERA_Backend.svg?style=for-the-badge)
 ![Repository issues"](https://img.shields.io/github/issues/rockofox/firefox-minima.svg?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/renatonunes74/PS_SUPERA_Backend?style=for-the-badge)
-# FoodMinder
-**API RESTful de dados de transferência de banco**
+# Processo Seletivo SUPERA
+**API RESTful em Java de dados de transferência de banco**
 
 [Como usar](#como-usar) -
 [Funcionalidades](#funcionalidades) -
