@@ -1,17 +1,20 @@
 name: Teste unitários com jUnit 5
 on:
-    pull_request: ['main']
-    jobs:
-      jUnit-testes:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Setup - Projeto
-            uses: actions/checkout@v3
+  pull_request:
+    branches:
+      - main
 
-          - name: Setup - Java
-            uses: actions/setup-java@v2
-            with:
-              java-version: '17'
+  jobs:
+    jUnit-testes:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Setup - Projeto
+          uses: actions/checkout@v3
 
-          - name: Execução do teste unitário
-            run: mvn clean test
+        - name: Setup - Java
+          uses: actions/setup-java@v2
+          with:
+            java-version: '17'
+
+        - name: Execução do teste unitário
+          run: mvn clean test
