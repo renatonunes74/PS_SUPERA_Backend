@@ -4,7 +4,6 @@
 ![Repository size"](https://img.shields.io/github/repo-size/renatonunes74/PS_SUPERA_Backend.svg?style=for-the-badge)
 ![GitHub last commit"](https://img.shields.io/github/last-commit/renatonunes74/PS_SUPERA_Backend.svg?style=for-the-badge)
 ![Repository issues"](https://img.shields.io/github/issues/rockofox/firefox-minima.svg?style=for-the-badge)
-![GitHub](https://img.shields.io/github/license/renatonunes74/PS_SUPERA_Backend?style=for-the-badge)
 # Processo Seletivo SUPERA
 **API RESTful em Java de dados de transferência de banco<br>[Repo. do Frontend em React](https://github.com/renatonunes74/PS_SUPERA_Frontend)**
 
