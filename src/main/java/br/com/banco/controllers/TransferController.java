@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/transferencia")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TransferController {
 
 	@Autowired
