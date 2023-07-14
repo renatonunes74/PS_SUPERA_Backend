@@ -1,0 +1,7 @@
+br/com/banco/infra/TransferResponseDTO.class
+br/com/banco/domain/transfer/Transfer$TransferBuilder.class
+br/com/banco/domain/transfer/RequestTransfer.class
+br/com/banco/domain/transfer/Transfer.class
+br/com/banco/controllers/TransferController.class
+br/com/banco/BancoApplication.class
+br/com/banco/domain/transfer/TransferRepository.class

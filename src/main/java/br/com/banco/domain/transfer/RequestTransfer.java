@@ -4,7 +4,8 @@ public record RequestTransfer(
 	Long id,
 	String dataTransferencia,
 	Float valor,
-	String nomeOperadorTransferencia,
+	String tipo,
+	String nomeOperadorTransacao,
 	Integer contaId
 ) {
 }
