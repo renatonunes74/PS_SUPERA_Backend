@@ -12,6 +12,8 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDate;
+
 @SpringBootTest
 public class TransferControllerTest {
     @InjectMocks
@@ -20,22 +22,47 @@ public class TransferControllerTest {
     private TransferRepository repository;
 
     // Dados para os testes unitários
-    String nome = "Ronnyscley";
-    String data = "2021-04-01 12:12:04+03";
+    String nomeOperadorTransacao = "Ronnyscley";
+    String dataTransacao = "2021-04-01 12:12:04+03";
+    LocalDate inicio = LocalDate.parse("2019-04-01");
+    LocalDate fim = LocalDate.parse("2021-04-01");
+    Integer contaId = 1;
 
-    @Test // Teste pelo nome do operador
+    void getAll() {
+        var response = Assertions.assertDoesNotThrow(() -> transferController.getAll());
+        Assertions.assertEquals(transferController.getAll(), response);
+    }
+    @Test // Teste pelo ID da conta
+    void getAllByContaId() {
+        var response = Assertions.assertDoesNotThrow(() -> transferController.getAllByContaId(contaId));
+        Assertions.assertEquals(transferController.getAllByContaId(contaId), response);
+    }
+    @Test // Teste pelo nome do operador de transação
     void getAllByNomeOperadorTransacao() {
-        var response = Assertions.assertDoesNotThrow(() -> transferController.getAllByNomeOperadorTransacao(nome));
-        Assertions.assertEquals(transferController.getAllByNomeOperadorTransacao(nome), response);
+        var response = Assertions.assertDoesNotThrow(() -> transferController.getAllByNomeOperadorTransacao(nomeOperadorTransacao));
+        Assertions.assertEquals(transferController.getAllByNomeOperadorTransacao(nomeOperadorTransacao), response);
     }
-    @Test // Teste pela data do operador
-    void getAllByDataTransferencia() {
-        var response = Assertions.assertDoesNotThrow(() -> transferController.getAllByDataTransferencia(data));
-        Assertions.assertEquals(transferController.getAllByDataTransferencia(data), response);
+
+    @Test // Teste pelos filtros de período
+    void getAllWithFilterPeriod() {
+        var response = Assertions.assertDoesNotThrow(() -> transferController.getAllWithFilter(inicio, fim, null, null));
+        Assertions.assertEquals(transferController.getAllWithFilter(inicio, fim, null, null), response);
     }
-    @Test // Teste pela data do operador e nome
-    void getAllByNomeOperadorAndDataTransferencia() {
-        var response = Assertions.assertDoesNotThrow(() -> transferController.getAllByNomeOperadorAndDataTransferencia(data, nome));
-        Assertions.assertEquals(transferController.getAllByNomeOperadorAndDataTransferencia(data, nome), response);
+
+    @Test // Teste pelos filtros de período e operador
+    void getAllWithFilterPeriodAndOperador() {
+        var response = Assertions.assertDoesNotThrow(() -> transferController.getAllWithFilter(inicio, fim, null, nomeOperadorTransacao));
+        Assertions.assertEquals(transferController.getAllWithFilter(inicio, fim, null, nomeOperadorTransacao), response);
+    }
+
+    @Test // Teste pelos filtros de período e conta
+    void getAllWithFilterPeriodAndNomeOperadorTransacao() {
+        var response = Assertions.assertDoesNotThrow(() -> transferController.getAllWithFilter(inicio, fim, contaId, null));
+        Assertions.assertEquals(transferController.getAllWithFilter(inicio, fim, contaId, null), response);
+    }
+    @Test // Teste por todos os filtros
+    void getAllWithFilter() {
+        var response = Assertions.assertDoesNotThrow(() -> transferController.getAllWithFilter(inicio, fim, contaId, nomeOperadorTransacao));
+        Assertions.assertEquals(transferController.getAllWithFilter(inicio, fim, contaId, nomeOperadorTransacao), response);
     }
 }
