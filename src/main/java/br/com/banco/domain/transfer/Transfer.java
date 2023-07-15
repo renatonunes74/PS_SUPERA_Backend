@@ -3,6 +3,8 @@ package br.com.banco.domain.transfer;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Table(name = "transferencia")
 @Entity(name = "transferencia")
 @Data
@@ -13,7 +15,7 @@ import lombok.*;
 public class Transfer {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String dataTransferencia;
+	private LocalDateTime dataTransferencia;
 	private Float valor;
 	private String tipo;
 	private String nomeOperadorTransacao;
