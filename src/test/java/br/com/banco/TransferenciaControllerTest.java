@@ -1,25 +1,21 @@
 package br.com.banco;
 
-import br.com.banco.controllers.TransferController;
-import br.com.banco.domain.transfer.TransferRepository;
-import br.com.banco.infra.TransferResponseDTO;
+import br.com.banco.controllers.TransferenciaController;
+import br.com.banco.domain.transferencia.TransferenciaRepository;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
 
 @SpringBootTest
-public class TransferControllerTest {
+public class TransferenciaControllerTest {
     @InjectMocks
-    private TransferController transferController;
+    private TransferenciaController transferController;
     @Mock
-    private TransferRepository repository;
+    private TransferenciaRepository repository;
 
     // Dados para os testes unitários
     String nomeOperadorTransacao = "Ronnyscley";

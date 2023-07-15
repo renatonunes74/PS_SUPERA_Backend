@@ -1,10 +1,8 @@
-package br.com.banco.domain.transfer;
+package br.com.banco.domain.transferencia;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 
-public record RequestTransfer(
+public record RequestTransferencia(
 	Long id,
 	LocalDateTime dataTransferencia,
 	Float valor,

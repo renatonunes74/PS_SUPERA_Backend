@@ -1,4 +1,4 @@
-package br.com.banco.domain.transfer;
+package br.com.banco.domain.transferencia;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Builder
-public class Transfer {
+public class Transferencia {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private LocalDateTime dataTransferencia;
@@ -20,7 +20,7 @@ public class Transfer {
 	private String tipo;
 	private String nomeOperadorTransacao;
 	private Integer contaId;
-	public Transfer(RequestTransfer data){
+	public Transferencia(RequestTransferencia data){
 		this.dataTransferencia = data.dataTransferencia();
 		this.valor = data.valor();
 		this.tipo = data.tipo();
