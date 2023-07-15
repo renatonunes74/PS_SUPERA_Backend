@@ -11,7 +11,6 @@
 [Funcionalidades](#funcionalidades) -
 [Dependências necessárias](#dependências-necessárias) -
 [Tecnologias usadas](#tecnologias-usadas)
-<!-- [Diagramas](#diagramas) -->
 <br>
 </div>
 
@@ -31,18 +30,25 @@
 
 ### Funcionalidades
 - Listar todas as transferências
-    - `http http://localhost:8080/transferencia`
-- Listar todas as transferências por nome
-    - `http http://localhost:8080/transferencia/nome/{nome}`
-- Listar todas as transferências por data
-    - `http http://localhost:8080/transferencia/data/{data}`
-- Listar todas as transferências por data e nome
-    - `http http://localhost:8080/transferencia/data/{data}/nome/{nome}`
-
-<!-- **OBS**: `price_in_cents` é preço em centavos (maior facilidade) -->
+    - `http http://localhost:8080/transferencias`
+- Listar todas as transferências por **conta**
+    - `http http://localhost:8080/transferencias/conta/{contaId}`
+        - exemplo: `http http://localhost:8080/transferencias/conta/1`
+- Listar todas as transferências por **nome do operador de transação**
+    - `http http://localhost:8080/transferencias/operador/{nomeOperadorTransacao}`
+        - exemplo: `http http://localhost:8080/transferencias/operador/beltrano`
+- Listar todas as transferências por **período de tempo**
+    - `http "localhost:8080/transferencias/filtro?inicio={dataInicial}&fim={dataFinal}"`
+        - exemplo: `http "localhost:8080/transferencias/filtro?inicio=2017-01-01&fim=2022-01-01"`
+- Listar todas as transferências por **período de tempo** e **conta**
+    - `http "localhost:8080/transferencias/filtro?inicio={dataInicial}&fim={dataFinal}&conta={contaId}"`
+        - exemplo: `http "localhost:8080/transferencias/filtro?inicio=2017-01-01&fim=2022-01-01&conta=1"`
+- Listar todas as transferências por **período de tempo**, **conta** e **nome do operador de transação**
+    - `http "localhost:8080/transferencias/filtro?inicio={dataInicial}&fim={dataFinal}&conta={contaId}&operador={nomeOperadorTransacao}"`
+        - exemplo: `http "localhost:8080/transferencias/filtro?inicio=2017-01-01&fim=2022-01-01&conta=1&operador=beltrano"`
 
 ### Dependências necessárias
-- [Java](https://dev.java/)
+- [Java 17 ou superior](https://dev.java/)
 
 ### Tecnologias usadas
 - Linguagem: [Java](https://dev.java/)
@@ -53,68 +59,5 @@
         - [Lombok](https://projectlombok.org/) (Anotações para gerar automaticamente métodos getters, setters, construtores, entre outros, em tempo de compilação)
 - Banco de dados: [H2](https://www.mysql.com/)
 - Complementares:
-     - [Mermerd](https://github.com/KarnerTh/mermerd) (Criação automática de diagrama de relacionamento)
      - [VHS](https://github.com/charmbracelet/vhs) (Criação de GIF do terminal via código)
      - [httpie](https://httpie.io/) (Maior facilidade para requisições HTTP (alternativa ao `curl` e `insomnia`))
-
-<!-- ## Diagramas -->
-<!-- ### Diagrama de classes -->
-<!-- ```mermaid -->
-<!-- classDiagram -->
-<!-- class DemoApplicationTests { -->
-<!--   void : contextLoads(); -->
-<!-- } -->
-<!-- class ProductController { -->
-<!--   +getAllProducts(); -->
-<!--   +deleteProduct(String); -->
-<!--   +registerProduct(RequestProduct); -->
-<!--   +updateProduct(RequestProduct); -->
-<!-- } -->
-<!-- class DemoApplication { -->
-<!--   +static void main(String[]); -->
-<!-- } -->
-<!-- class Product { -->
-<!--   -String : id; -->
-<!--   -String : name; -->
-<!--   -Integer price_in_cents; -->
-<!--   -Boolean : active; -->
-<!--   +String : getId(); -->
-<!--   +String : getName(); -->
-<!--   +Integer : getPrice_in_cents(); -->
-<!--   +Boolean : getActive(); -->
-<!--   +void : setId(String); -->
-<!--   +void : setName(String); -->
-<!--   +void : setPrice_in_cents(Integer); -->
-<!--   +void : setActive(Boolean); -->
-<!--   +boolean : equals(Object); -->
-<!-- #boolean : canEqual(Object); -->
-<!--   +int : hashCode(); -->
-<!-- } -->
-<!-- class RequestProduct { -->
-<!--     -String : id; -->
-<!--     -String : name; -->
-<!--     -Integer price_in_cents; -->
-<!--     +String : toString(); -->
-<!--     +int hashCode(); -->
-<!--     +boolean equals(Object); -->
-<!--     +String : id(); -->
-<!--     +String : name(); -->
-<!--     +Integer price_in_cents(); -->
-<!-- } -->
-<!-- class ProductRepository { -->
-<!--     <<interface>> -->
-<!-- } -->
-<!-- ProductRepository ..|> Product : Realization -->
-<!-- RequestProduct ..|> Record : Realization -->
-<!-- ``` -->
-<!---->
-<!-- ### Diagrama de relacionamento -->
-<!-- ```mermaid -->
-<!-- erDiagram -->
-<!-- product { -->
-<!--     varchar id -->
-<!--         text name  -->
-<!--         int price_in_cents  -->
-<!--         tinyint active  -->
-<!-- } -->
-<!-- ``` -->

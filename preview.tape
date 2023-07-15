@@ -6,7 +6,9 @@ Set Height 600
 Set Padding 20
 Set Shell zsh
 Set TypingSpeed 0.2
-Type "http localhost:8080/transferencia; : Consultando todas as transferências" Sleep 2s Enter Sleep 3s
-Type "http localhost:8080/transferencia/nome/Beltrano; : Consultando todas as transferências pelo nome" Sleep 2s Enter Sleep 3s
-Type "http localhost:8080/transferencia/data/2021-04-01 12:12:04+03; : Consultando todas as transferências pela data" Sleep 2s Enter Sleep 3s
-Type "http localhost:8080/transferencia/data/2021-04-01 12:12:04+03/nome/Ronnyscley; : Consultando todas as transferências pela data e nome" Sleep 2s Enter Sleep 7s
+Type "http http://localhost:8080/transferencias; : Listar todas as transferências" Sleep 2s Enter Sleep 3s
+Type "http http://localhost:8080/transferencias/conta/1; : Listar todas as transferências por conta" Sleep 2s Enter Sleep 3s
+Type "http http://localhost:8080/transferencias/operador/beltrano; : Listar todas as transferências por nome do operador de transação" Sleep 2s Enter Sleep 3s
+Type "http 'localhost:8080/transferencias/filtro?inicio=2017-01-01&fim=2022-01-01'; : Listar todas as transferências por período de tempo" Sleep 2s Enter Sleep 3s
+Type "http 'localhost:8080/transferencias/filtro?inicio=2017-01-01&fim=2022-01-01&conta=1'; : Listar todas as transferências por período de tempo e conta" Sleep 2s Enter Sleep 3s
+Type "http 'localhost:8080/transferencias/filtro?inicio=2017-01-01&fim=2022-01-01&conta=1&operador=beltrano'; : Listar todas as transferências por período de tempo, conta e nome do operador de transação" Sleep 2s Enter Sleep 7s
