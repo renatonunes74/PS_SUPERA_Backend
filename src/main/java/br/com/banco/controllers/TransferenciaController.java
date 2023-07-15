@@ -43,27 +43,31 @@ public class TransferenciaController {
 	// Lista de todas as transferencias por período de tempo e / ou operador
 	@GetMapping("/filtro")
 	public ResponseEntity<List<Transferencia>> getAllWithFilter(
-			@RequestParam("inicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicio,
-			@RequestParam("fim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFim,
-			@RequestParam(value = "conta", required = false) Integer contaId,
-			@RequestParam(value = "operador", required = false) String nomeOperadorTransacao) {
+		@RequestParam("inicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicio,
+		@RequestParam("fim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFim,
+		@RequestParam(value = "conta", required = false) Integer contaId,
+		@RequestParam(value = "operador", required = false) String nomeOperadorTransacao) {
+		// Formatando a data YYYY-MM-DD para ter timestamp
 		LocalDateTime inicio = dataInicio.atStartOfDay();
 		LocalDateTime fim = dataFim.atTime(LocalTime.MAX);
 		List<Transferencia> transferencias;
 
+		// Filtro por período, ID da conta e nome do operador de transação
 		if (contaId != null && nomeOperadorTransacao != null) {
 			transferencias = transferenciaRepository.findAllByDataTransferenciaBetweenAndContaIdAndNomeOperadorTransacaoIgnoreCase(
-					inicio, fim, contaId, nomeOperadorTransacao);
+				inicio, fim, contaId, nomeOperadorTransacao);
 		} else if (contaId != null) {
+		// Filtro por período e ID da conta
 			transferencias = transferenciaRepository.findAllByDataTransferenciaBetweenAndContaId(
-					inicio, fim, contaId);
+				inicio, fim, contaId);
 		} else if (nomeOperadorTransacao != null) {
+		// Filtro por período e nome do operador de transação
 			transferencias = transferenciaRepository.findAllByDataTransferenciaBetweenAndNomeOperadorTransacaoIgnoreCase(
-					inicio, fim, nomeOperadorTransacao);
+				inicio, fim, nomeOperadorTransacao);
 		} else {
+		// Filtro por período
 			transferencias = transferenciaRepository.findAllByDataTransferenciaBetween(inicio, fim);
 		}
-
 		return ResponseEntity.ok(transferencias);
 	}
 }
