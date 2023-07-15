@@ -32,7 +32,6 @@ public class TransferController {
 	@GetMapping("/conta/{contaId}")
 	public ResponseEntity<List<TransferResponseDTO>> getAllByContaId(@PathVariable Integer contaId){
 		return ResponseEntity.ok(repository.findAllByContaId(contaId).stream().map(TransferResponseDTO::new).toList());
-		//return ResponseEntity.ok(repository.findAllByContaId(contaId).stream().map(TransferResponseDTO::new).toList());
 	}
 
 	// Lista de todas as transferencias pelo nome do operador de transação
@@ -43,7 +42,7 @@ public class TransferController {
 
 	// Lista de todas as transferencias por período de tempo e / ou operador
 	@GetMapping("/filtro")
-	public ResponseEntity<List<Transfer>> getAllTransferenciasPorPeriodoAndNomeOperadorTransacao(
+	public ResponseEntity<List<Transfer>> getAllWithFilter(
 			@RequestParam("inicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicio,
 			@RequestParam("fim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFim,
 			@RequestParam(value = "conta", required = false) Integer contaId,
