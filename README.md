@@ -29,21 +29,21 @@
 1. Agora é só fazer as requisições para a API
 
 ### Funcionalidades
-- Listar todas as transferências
+- [x] Listar todas as transferências
     - `http http://localhost:8080/transferencias`
-- Listar todas as transferências por **conta**
+- [x] Listar todas as transferências por **conta**
     - `http http://localhost:8080/transferencias/conta/{contaId}`
         - exemplo: `http http://localhost:8080/transferencias/conta/1`
-- Listar todas as transferências por **nome do operador de transação**
+- [x] Listar todas as transferências por **nome do operador de transação**
     - `http http://localhost:8080/transferencias/operador/{nomeOperadorTransacao}`
         - exemplo: `http http://localhost:8080/transferencias/operador/beltrano`
-- Listar todas as transferências por **período de tempo**
+- [x] Listar todas as transferências por **período de tempo**
     - `http "localhost:8080/transferencias/filtro?inicio={dataInicial}&fim={dataFinal}"`
         - exemplo: `http "localhost:8080/transferencias/filtro?inicio=2017-01-01&fim=2022-01-01"`
-- Listar todas as transferências por **período de tempo** e **conta**
+- [x] Listar todas as transferências por **período de tempo** e **conta**
     - `http "localhost:8080/transferencias/filtro?inicio={dataInicial}&fim={dataFinal}&conta={contaId}"`
         - exemplo: `http "localhost:8080/transferencias/filtro?inicio=2017-01-01&fim=2022-01-01&conta=1"`
-- Listar todas as transferências por **período de tempo**, **conta** e **nome do operador de transação**
+- [x] Listar todas as transferências por **período de tempo**, **conta** e **nome do operador de transação**
     - `http "localhost:8080/transferencias/filtro?inicio={dataInicial}&fim={dataFinal}&conta={contaId}&operador={nomeOperadorTransacao}"`
         - exemplo: `http "localhost:8080/transferencias/filtro?inicio=2017-01-01&fim=2022-01-01&conta=1&operador=beltrano"`
 
